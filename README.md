@@ -1,6 +1,3 @@
-# coding-practice
-Just random snippets of code.
-
 # Project Name 
 A short description of what this project does.
 
