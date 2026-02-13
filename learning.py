@@ -1,9 +1,11 @@
+# Add two to user input 
 def addTwo():
     num = int(input("Enter a number"))
     result1 = num + 2 
     # print(result) 
     return result1
 
+# Multiply user input by 5 
 def multiplyByFive(num):
     result2 = num * 5 
     # print(result2)
