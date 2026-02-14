@@ -19,13 +19,12 @@
 *.ilg
 *.ind
 
+# Minted 
+_minted* 
+
 # Temporary or backup files
 *~
 *.backup
 *.bak
 
-# VS Code workspace settings (optional)
-.vscode/
 
-# Mac system files (optional)
-.DS_Store
