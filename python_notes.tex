@@ -1,0 +1,982 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage{graphicx} % Required if you want to include images
+\usepackage{xcolor} % Allows defining custom colours
+\usepackage{minted} % Required for syntax highlighting (uses Pygments)
+
+% Set default options for all minted options 
+\setminted{
+    linenos,             % Show line numbers
+    numbersep=8pt,       % Space between numbers and code
+    frame=single,        % Put a box/frame around the code
+    framesep=2mm,        % Space between frame and code
+    fontsize=\footnotesize, % Font size of the code
+    breaklines=true,     % Automatically wrap long lines
+    tabsize=4,           % How many spaces a tab represents
+    style=vs,       % Colour scheme (Visual Studio style here; can change)
+}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.5cm}
+\setlist[enumerate]{leftmargin=1.5cm}
+
+\usepackage{xcolor}
+\usepackage{soul} 
+\definecolor{hlred}{RGB}{250, 105, 97}
+
+\usepackage{csquotes}
+
+\title{Python Notes}
+\author{Nicole Oni}
+\date{February 2026}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Basics}
+\subsection{Introduction}
+Python is a popular programming language. It was created by Guido van Rossum, and released in 1991. 
+
+It is used for:
+\begin{itemize}
+    \item web development (server side), 
+    \item software development,
+    \item mathematics,
+    \item system scripting
+\end{itemize}
+
+Python can:
+\begin{itemize}
+    \item be used on a server to create web applications.
+    \item be used alongside software to create workflows.
+    \item connect to database systems. It can also read and modify files.
+    \item be used to handle big data and perform complex mathematics.
+    \item be used for rapid prototyping, or for production-ready software development.
+\end{itemize}
+
+Python Syntax compared to other programming languages:
+\begin{itemize}
+    \item Python was designed for readability, and has some similarities to the English language with influence from mathematics.
+    \item Python uses new lines to complete a command, as opposed to other programming languages which often use semicolons or parentheses.
+    \item Python relies on indentation, using whitespace, to define scope; such as the scope of loos, functions and classes. Other programming languages often use curly-brackets for this purpose.
+\end{itemize}
+
+Other:
+\begin{itemize}
+    \item The extension for Python files is \mintinline{text}{.py}. 
+    \item The command line syntax for checking if Python is installed on your computer (and also to check the python version) is \mintinline{python}{python --version}.
+    \item Use \mintinline{python}{exit()} to exit the Python command line interface.
+\end{itemize}
+
+\subsection{Python Syntax}
+\subsubsection{Python Indentation}
+\begin{itemize}
+    \item Indentation refers to the spaces at the beginning of a code line.
+    \item Where in other programming langugaes the indentation in code is for readability only, the indentation in Python is very important.
+    \item Python uses identation to indicate a black of code.
+\end{itemize}
+
+For example, Python will give you an error if you skip the indentation:
+\begin{minted}[bgcolor=hlred]{python}
+if 5 > 2: 
+print("Five is greater than two!") 
+\end{minted}
+
+Correct version:
+\begin{minted}{python}
+if 5 > 2: 
+    print("Five is greater than two!") 
+\end{minted}
+
+\subsubsection{Python Statements}
+\begin{itemize}
+    \item A \textbf{computer program} is a list of \enquote{instructions} to be \enquote{executed} by a computer.
+    \item In a programming language, these programming instructions are called \textbf{statements}. 
+    \item In Python, a statement usually ends when the line ends. You do \textit{not} need to use a semicolon (;) like in many other programming languages (for example, Java or C). 
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+print("Python is fun!")
+\end{minted}
+
+Many Statements:
+\begin{itemize}
+    \item Most Python programs contain many statements.
+    \item The statements are executed one by one, in the same order as they are written.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+print("Hello World!")
+print("Have a good day.")
+print("Learning Python is fun!")
+\end{minted}
+
+Semicolons:
+\begin{itemize}
+    \item Semicolons are optional in Python.
+    \item You can write multiple statements on one line by separating them with \mintinline{text}{;} but this is rarely used because it makes it hard to read.
+    \item If you put two statements on the same line without a separator (newline or \mintinline{text}{;} , Python will give an error.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+print("Hello"); print("How are you?"); print("Bye bye!") 
+\end{minted}
+
+\setlength{\fboxsep}{4pt} % Controls padding
+\colorbox{yellow}{\textbf{Best practice:} Put each statement on its own line so your code is easy to understand.} \\
+
+\subsubsection{Challenge}
+Inside the editor, complete the following steps:
+\begin{enumerate}
+    \item Write a statement that prints \enquote{Hello World!}
+    \item Write a statement that prints \enquote{Have a good day.}
+    \item Write a statement that prints \enquote{Learning Python is fun!} 
+\end{enumerate}
+
+Solution:
+\begin{minted}{python}
+print("Hello World!")
+print("Have a good day.")
+print("Learning Python is fun!")
+\end{minted}
+
+\subsection{Python Output / Print}
+\begin{itemize}
+    \item The \mintinline{python}{print()} function can be used to display text or output values.
+    \item You can use the \mintinline{python}{print()} function as manytimes as you want. Each cell prints text on a new line by default. 
+    \item Text in Python must be inside quotes. You can use either \mintinline{python}{"} double quotes or \mintinline{python}{'} single quotes.
+    \item If you forget to put the text inside quotes. Python will give an error. 
+\end{itemize}
+
+\begin{minted}[linenos, highlightlines={4}, highlightcolor=hlred]{python}
+print("Hello World!")
+print("This will work!")
+print('This will also work!')
+print(This will cause an error)
+\end{minted}
+
+\subsubsection{Print Without a New Line}
+\begin{itemize}
+    \item By default, the \mintinline{python}{print()} function ends with a new line.
+    \item If you want to print multiple words on the same line, you can use the \mintinline{python}{end} parameter.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+print("Hello World!", end=" ")
+print("I will print on the same line.")
+\end{minted}
+Note that we add a space after \mintinline{python}{end=" "} for better readability.
+
+\subsubsection{Print Numbers}
+\begin{itemize}
+    \item You can also use the \mintinline{python}{print()} function to display numbers.
+    \item However, unlike text, we don't put numbers inside double quotes.
+    \item You can also do maths inside the \mintinline{python}{print()} function.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+print(3)
+print(358)
+print(2*5)
+\end{minted}
+
+\subsubsection{Mixing Text and Numbers}
+You can combine text and numbers in one output by separating them with a comma. For example:
+\begin{minted}{python}
+print("I am", 35, "years old.")
+\end{minted}
+
+\subsubsection{Challenge}
+Inside the editor, complete the following steps:
+\begin{enumerate}
+    \item Print the text \textbf{\enquote{I am}} and the number \textbf{25} in one print statement.
+\end{enumerate}
+
+Solution:
+\begin{minted}{python}
+print("I am", 25)
+\end{minted}
+
+
+\subsection{Comments}
+\begin{itemize}
+    \item Python has commenting capability for the purpose of in-code documentation.
+    \item Uses of comments:
+        \begin{itemize}
+            \item Comments can be used to explain Python code.
+            \item Comments can be used to make the code more readable.
+            \item Comments can be used to prevent execution when testing code. 
+        \end{itemize}
+    \item Comments start with a \#, and Python will render the rest of the line as a comment.
+    \item Comments can be placed at the end of a line, and Python will ignore the rest of the line.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+# This is a comment
+print("Hello, World!") 
+
+print("Hello, World!") # This is a comment 
+\end{minted}
+
+\subsubsection{Multiline Comments}
+Option 1:
+\begin{itemize}
+    \item Python does not really have a syntax for multiline comments.
+    \item To add a multiline comment you could insert a \# for each line.
+\end{itemize}
+
+Option 2:
+\begin{itemize}
+    \item Or, not quite as intended, you can use a \textbf{multiline string}.
+    \item Since Python will ignore string literals that are not assigned to a variable, you can add a multiline string (triple quotes) in your code, and place your comment inside it. 
+    \item As long as the string is not assigned to a variable, Python will read the code, but then ignore it, and you have made a multiline comment. 
+\end{itemize}
+
+Example: 
+\begin{minted}{python}
+# This is a comment
+# written in 
+# more than just one line 
+
+print("Hello, World!") 
+
+"""
+This is a comment
+written in 
+more than just one line 
+"""
+\end{minted}
+
+\subsubsection{Challenge}
+Inside the editor, complete the following steps:
+\begin{enumerate}
+    \item Add a single-line comment that says \textbf{This is a comment}
+    \item Comment out the line \mintinline{python}{print("This should not run")} so it does not execute.
+    \item Add a multiline comment (using triple quotes) that says \textbf{This is} \\ \textbf{a multiline} \\ \textbf{comment}
+\end{enumerate}
+
+Solution:
+\begin{minted}{python}
+# This is a comment
+# print("This should not run") 
+"""
+This is 
+a multiline 
+comment 
+"""
+\end{minted}
+
+\subsection{Python Variables}
+\begin{itemize}
+    \item Variables are containers for storing data values.
+    \item Python has no command for declaring a variable.
+    \item A variable is created the moment you first assign a value to it.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+x = 5
+y = "John"
+print(x)
+print(y)
+\end{minted}
+
+Variables do not need to be declared with any particular \textit{type} and can even change type after they have been set. For example:
+\begin{minted}{python}
+x = 4 # x is of type int 
+x = "Sally" # x is now of type str
+print(x)
+\end{minted}
+
+\subsubsection{Get the Type}
+You can get the data type of a variable with the \mintinline{python}{type()} function. \\
+Example:
+\begin{minted}{python}
+x = 5
+y = "John"
+print(type(x))
+print(type(y))
+\end{minted}
+
+\subsubsection{Other}
+\begin{itemize}
+    \item String variables can be declared either by using single or double quotes.
+    \item Variable names are case-sensitive.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+x = "John" 
+# is the same as 
+x = 'John' 
+
+a = 4 
+A = "Sally"
+# A will not overwrite a 
+\end{minted}
+
+\subsubsection{Variable Names}
+A variable can have a short name (like \mintinline{python}{x} and \mintinline{python}{y}) or a more descriptive name (\mintinline{python}{age, carname, total_volume}. \\
+Rules for Python variables:
+\begin{itemize}
+    \item A variable name must start with a letter or the underscore character.
+    \item A variable name cannot start with a number.
+    \item A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and \_).
+    \item Variable names are case-sensitive (\mintinline{python}{age, Age} and \mintinline{python}{AGE} are three different variables). 
+    \item A variable name cannot be any of the Python keywords.
+\end{itemize}
+
+Legal variable names:
+\begin{minted}{python}
+myvar = "John"
+my_var = "John"
+_my_var = "John"
+myVar = "John"
+MYVAR = "John"
+myvar2 = "John"
+\end{minted}
+
+Illegal variable names:
+\begin{minted}[bgcolor=hlred]{python}
+2myvar= "John"
+my-var = "John"
+my var = "John"
+\end{minted}
+
+Multi Words Variable Names: \\
+Variable names with more than one word can be difficult to read. There are several techniques you can use to make them more readable:
+\begin{itemize}
+    \item \textbf{Camel Case:} Each word, except the first, starts with a capital letter: \mintinline{python}{myVariableName = "John"}
+    \item \textbf{Pascal Case:} Each word starts with a capital letter: \mintinline{python}{MyVariableName = "John"}
+    \item \textbf{Snake Case:} Each word is separated by an underscore character: \mintinline{python}{my_variable_name = "John"}
+\end{itemize}
+
+\subsubsection{Assign Multiple Values}
+Many Values to Multiple Variables: 
+\begin{itemize}
+    \item Python allows you to assign values to multiple variables in one line.
+    \item Make sure the number of variables matches the number of values, or else you will get an error.
+\end{itemize}
+Example:
+\begin{minted}{python}
+x, y, z = "Orange", "Banana", "Cherry" 
+print(x)
+print(y)
+print(z)
+\end{minted}
+
+One Value to Multiple Variables: \\
+And you can assign the \textit{same} value to multiple variables in one line:
+\begin{minted}{python}
+x = y = z = "Orange"
+print(x)
+print(y)
+print(z)
+\end{minted}
+
+\subsubsection{Unpack a Collection}
+If you have a collection of values in a \mintinline{python}{list, tuple} etc. Python allows you to extract the values into variables. This is called \textit{unpacking}. \\
+
+Example (unpack a list):
+\begin{minted}{python}
+fruits = ["apple", "banana", "cherry"]
+x, y, z = fruits
+print(x)
+print(y)
+print(z)
+\end{minted}
+
+\subsubsection{Output Variables}
+\begin{itemize}
+    \item The \mintinline{python}{print()} function is often used to output variables.
+    \item In the \mintinline{python}{print()} function, you output multiple variables, separated by a comma.
+    \item You can also use the \mintinline{python}{+} operator to output multiple variables.
+        \begin{itemize}
+            \item For strings, add a space at the end otherwise there will be no spaces between words.
+            \item For numbers, the \mintinline{python}{+} character works as a mathematical operator. 
+            \item In the \mintinline{python}{print} function, when you try to combine a string and a number with the \mintinline{python}{+} operator, Python will give you and error. 
+        \end{itemize}
+    \item The best way to output multiple variables in the \mintinline{python}{print()} function is to separate them with commas, which even support different data types.
+\end{itemize}
+
+\begin{minted}[linenos, highlightlines={18-21}, highlightcolor=hlred]{python}
+# Output multiple variables using a comma 
+x = "Python"
+y = "is"
+z = "awesome"
+print(x, y, z)
+
+# Output multiple variables using + 
+x = "Python"
+y = "is"
+z = "awesome"
+print(x + y + z)
+
+# Using the + character as a mathematical operator 
+x = 5
+y = 10
+print(x + y)
+
+# Combining strings and numbers with the + operator
+x = 5
+y = "John"
+print(x + y)
+\end{minted}
+
+\subsubsection{Global Variables}
+\begin{itemize}
+    \item Variables that are created outside of a function (as in all the previous examples) are known as \textbf{global variables}. 
+    \item Global variables can be used by everyone, both inside of functions and outside.
+\end{itemize}
+
+Example: \\
+Create a variable outside of a function, and use it inside the function.
+\begin{minted}{python}
+x = "awesome"
+
+def myfunc():
+    print("Python is" + x)
+
+myfunc() 
+\end{minted}
+
+If you create a variable with the same name inside a function, this variable will be \textbf{local}, and can only be used inside the function. The global variable with the same name will remain as it was, global and with the original value. \\
+
+Example: \\
+Create a variable inside a function, with the same name as the global variable.
+\begin{minted}{python}
+x = "awesome"
+
+def myfunc():
+    x = "fantatic"
+    print("Python is " + x)
+
+myfunc()
+
+print("Python is " + x) 
+\end{minted}
+
+The global keyword 
+\begin{itemize}
+    \item Normally, when you create a variable inside a function, that variable is local, and can only be used inside that function.
+    \item To create a global variable inside a function, you can use the \mintinline{python}{global} keyword. 
+    \item If you use the \mintinline{python}{global} keyword, the variable belongs to the global scope.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+def myfunc():
+    global x 
+    x = "fantastic"
+
+myfunc() 
+
+print("Python is " + x)
+\end{minted}
+
+To change the value of a global variable inside a function, refer to the variable by using the \mintinline{python}{global} keyword. For example:
+\begin{minted}{python}
+x = "awesome"
+
+def myfunc():
+    global x 
+    x = "fantastic"
+
+myfunc() 
+
+print("Python is " + x)
+\end{minted}
+
+\subsubsection{Challenge}
+Inside the editor, complete the following steps:
+\begin{enumerate}
+    \item Create a variable \mintinline{python}{x} and assign it the value \textbf{5}.
+    \item Create a variable \mintinline{python}{y} and assign it the value \textbf{\enquote{John}}.
+    \item Use the \mintinline{python}{type()} function to print the type of \mintinline{python}{x}.
+\end{enumerate}
+
+Solution:
+\begin{minted}{python}
+x = 5
+y = "John"
+print(type(x))
+\end{minted}
+
+\subsection{Python Data Types}
+\subsubsection{Built-in Data Types}
+\begin{itemize}
+    \item In programming, data type is an important concept.
+    \item Variables can store data of different types, and different types can do different things.
+    \item Python has the following data types built-in by defaul, in these categories:
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{|l|l|}
+    \hline
+    Text Type & \mintinline{python}{str} \\
+    \hline
+    Numeric Types & \mintinline{python}{int, float, complex} \\
+    \hline
+    Sequence Types & \mintinline{python}{list, tuple, range} \\
+    \hline
+    Mapping Type & \mintinline{python}{dict} \\
+    \hline
+    Set Types & \mintinline{python}{set, frozenset} \\
+    \hline
+    Boolean Type & \mintinline{python}{bool} \\
+    \hline
+    Binary Types & \mintinline{python}{bytes, bytearray, memoryview} \\
+    \hline
+    None Type & \mintinline{python}{NoneType} \\
+    \hline
+\end{tabular}    
+\end{center}
+
+\subsubsection{Getting the Data Type}
+You can get the data type of any object by using the \mintinline{python}{type()} function.
+\begin{minted}{python}
+x = 5
+print(type(x))
+\end{minted}
+
+\begin{center}
+\begin{tabular}{|l|l|}
+    \hline
+    \textbf{Example} & \textbf{Data Type} \\
+    \hline
+    \mintinline{python}{x = "Hello World"} & \mintinline{python}{str} \\
+    \hline
+    \mintinline{python}{x = 20} & \mintinline{python}{int} \\
+    \hline
+    \mintinline{python}{x = 20.5} & \mintinline{python}{float} \\
+    \hline
+    \mintinline{python}{x = 1j} & \mintinline{python}{complex} \\
+    \hline
+    \mintinline{python}{x = ["apple", "banana", "cherry"]} & \mintinline{python}{list} \\
+    \hline
+    \mintinline{python}{x = ("apple", "banana", "cherry")} & \mintinline{python}{tuple} \\
+    \hline
+    \mintinline{python}{x = range(6)} & \mintinline{python}{range} \\
+    \hline
+    \mintinline{python}{x = {"name": "John", "age": 36}} & \mintinline{python}{dict} \\
+    \hline
+    \mintinline{python}{x = {"apple", "banana", "cherry"}} & \mintinline{python}{set} \\
+    \hline
+    \mintinline{python}{x = frozenset({"apple", "banana", "cherry"})} & \mintinline{python}{frozenset} \\
+    \hline
+    \mintinline{python}{x = True} & \mintinline{python}{bool} \\
+    \hline
+    \mintinline{python}{x = b"Hello"} & \mintinline{python}{bytes} \\
+    \hline
+    \mintinline{python}{x = bytearray(5)} & \mintinline{python}{bytearray} \\
+    \hline
+    \mintinline{python}{x = memoeryview(bytes(5))} & \mintinline{python}{memoryview} \\
+    \hline
+    \mintinline{python}{x = None} & \mintinline{python}{NoneType} \\
+    \hline
+\end{tabular}    
+\end{center}
+
+\subsubsection{Setting the Specific Data Type}
+If you want to specify the data type, you can use the following constructor functions:
+\begin{center}
+\begin{tabular}{|l|l|}
+    \hline
+    \textbf{Example} & \textbf{Data Type} \\
+    \hline
+    \mintinline{python}{x = str("Hello World")} & \mintinline{python}{str} \\
+    \hline
+    \mintinline{python}{x = int(20)} & \mintinline{python}{int} \\
+    \hline
+    \mintinline{python}{x = float(20.5)} & \mintinline{python}{float} \\
+    \hline
+    \mintinline{python}{x = complex(1j)} & \mintinline{python}{complex} \\
+    \hline
+    \mintinline{python}{x = list(["apple", "banana", "cherry"])} & \mintinline{python}{list} \\
+    \hline
+    \mintinline{python}{x = tuple(("apple", "banana", "cherry"))} & \mintinline{python}{tuple} \\
+    \hline
+    \mintinline{python}{x = range(6)} & \mintinline{python}{range} \\
+    \hline
+    \mintinline{python}{x = dict(name="John" age=36)} & \mintinline{python}{dict} \\
+    \hline
+    \mintinline{python}{x = set({"apple", "banana", "cherry"})} & \mintinline{python}{set} \\
+    \hline
+    \mintinline{python}{x = frozenset({"apple", "banana", "cherry"})} & \mintinline{python}{frozenset} \\
+    \hline
+    \mintinline{python}{x = bool(5)} & \mintinline{python}{bool} \\
+    \hline
+    \mintinline{python}{x = bytes(5)} & \mintinline{python}{bytes} \\
+    \hline
+    \mintinline{python}{x = bytearray(5)} & \mintinline{python}{bytearray} \\
+    \hline
+    \mintinline{python}{x = memoeryview(bytes(5))} & \mintinline{python}{memoryview} \\
+    \hline
+\end{tabular}    
+\end{center}
+
+\subsubsection{Challenge}
+Inside the editor, complete the following steps:
+\begin{enumerate}
+    \item Create a variable \mintinline{python}{x} with the value \textbf{5}.
+    \item Create a variable \mintinline{python}{y} with the value \textbf{3.14}.
+    \item Create a variable \mintinline{python}{z} with the value \textbf{\enquote{Hello}}.
+    \item Print the data type of each variable using \mintinline{python}{type()}. 
+\end{enumerate}
+
+Solution:
+\begin{minted}{python}
+x = 5
+y = 3.14 
+z = "Hello" 
+
+print(type(x))
+print(type(y))
+print(type(z))
+\end{minted}
+
+\subsection{Python Numbers}
+\begin{itemize}
+    \item Int, or integer, is a whole number, positive or negative, without decimals, of unlimited length. 
+    \item Float, or \enquote{floating point number} is a number, positive or negative, containing one or more decimals.
+    \item Float can also be scientific numbers with an \enquote{e} to indicate the power of 10. 
+    \item Complex numbers are written with \enquote{j} as the imaginary part.
+    \item You can convert from one type to another with the \mintinline{python}{int()}, \mintinline{python}{float()} and \mintinline{python}{complex()} methods.
+\end{itemize}
+
+\begin{minted}{python}
+# The three numeric types in Python
+x = 1 # int
+y = 2.8 # float
+y = 35e3 
+z = 1j # complex 
+
+# To verify the type of object 
+print(type(x))
+print(type(y))
+print(type(z))
+
+# Convert from one type to another 
+a = float(x)
+b = int(y)
+c = complex(x)
+\end{minted}
+
+\hl{You cannot convert complex numbers into another number type.}
+
+\subsubsection{Random Number}
+Python does not have a \mintinline{python}{random()} function to make a random number, but Python has a built-in module called \mintinline{python}{random} that can be used to make random numbers. 
+\begin{minted}{python}
+import random 
+print(random.randrange(1,10)) # displays a random number from 1 to 9
+\end{minted}
+
+\subsubsection{Challenge}
+Inside the editor, complete the following steps:
+\begin{enumerate}
+    \item Create a variable \mintinline{python}{x} with the value \textbf{5}.
+    \item Create a variable \mintinline{python}{y} with the value \textbf{3.14}.
+    \item Create a variable \mintinline{python}{z} with the value \textbf{2 + 3j}.
+    \item Print the type of each variable using \mintinline{python}{type()}.
+\end{enumerate}
+
+Solution:
+\begin{minted}{python}
+x = 5
+y = 3.14 
+z = 2 + 3j
+
+print(type(x))
+print(type(y))
+print(type(z))
+\end{minted}
+
+\subsection{Python Casting}
+If you want to specify the data type of a variable, this can be done with casting. Python is an object-oriented language, and as such it uses classes to define data types, including its primitive types.\\
+
+Casting in python is therefore done using constructor functions:
+\begin{itemize}
+    \item \mintinline{python}{int()} - constructs an integer number from:
+    \begin{itemize}
+        \item an integer literal
+        \item a float literal (by removing all decimals)
+        \item a string literal (providing the string represents a whole number)
+    \end{itemize}
+    \item \mintinline{python}{float()} - constructs a float number from:
+    \begin{itemize}
+        \item an integer literal
+        \item a float literal 
+        \item a string literal (providing the string represents a float or an integer)
+    \end{itemize} 
+    \item \mintinline{python}{str()} - constructs a string from a wide variety of data types, including:
+    \begin{itemize}
+        \item strings
+        \item integer literals
+        \item float literals
+    \end{itemize}
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+x = str(3) # x will be '3'
+y = int (3) # y will be 3
+z = float(3) # z will be 3.0
+
+print(int(35.88)) # Output is 35
+print(float(35)) # Output is 35.0 
+print(str(35.82)) # Output is 35.82
+\end{minted}
+
+\subsubsection{Challenge}
+Inside the editor, complete the following steps:
+\begin{enumerate}
+    \item Create a variable \mintinline{python}{x} with integer value \textbf{1}.
+    \item Convert \mintinline{python}{x} to a float and store it in \mintinline{python}{a}.
+    \item Convert \mintinline{python}{x} to a string and store it in \mintinline{python}{b}.
+    \item Print \mintinline{python}{a} and \mintinline{python}{b}. 
+\end{enumerate}
+
+Solution:
+\begin{minted}{python}
+# Create an integer 
+x = 1
+
+# Convert to float
+a = float(x)
+
+# Convert to string 
+b = str(x)
+
+# Print values 
+print(a)
+print(b)
+\end{minted}
+
+\subsection{Python Strings}
+\begin{itemize}
+    \item Strings in python are surrounded by either single quotation marks, or double quotation marks.
+    \item \mintinline{python}{'hello'} is the same as \mintinline{python}{"hello"}.
+    \item You can display a string literal with the \mintinline{python}{print()} function. 
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+print("Hello")
+print('Hello')
+\end{minted}
+
+\subsubsection{Quotes Inside Quotes}
+You can use quotes inside a string, as long as they don't match the quotes surrounding the string. 
+
+Example:
+\begin{minted}{python}
+print("It's alright")
+print("He is called 'Johnny'")
+print('He is called "Johnny"')
+\end{minted}
+
+\subsubsection{Assign String to a Variable}
+Assigning a string to a variable is done with the variable name followed by an equal sign and the string. \\ 
+
+Example:
+\begin{minted}{python}
+a = "Hello"
+print(a)
+\end{minted}
+
+\subsubsection{Multiline Strings}
+You can assign a multiline string to a variable by using three single/double quotes. \\
+
+Example:
+\begin{minted}{python}
+a = """Hello my name is Nicole,
+I am 18 years old,
+My birthday is June 2nd,
+And I am a Gemini."""
+print(a)
+\end{minted}
+
+\hl{Note: in the result, the line breaks are inserted at the same position as in the code.}
+
+\subsubsection{Strings are Arrays}
+\begin{itemize}
+    \item Like many other popular programming languages, strings in Python are arrays of unicode characters.
+    \item However, Python does not have a character data type, a single character is simply a string with a length of 1.
+    \item Square brackets can be used to access elements of the string.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+# Get the character at position 1 (remember thatthe first character has the position 0)
+a = "Hello, World!" 
+print(a[1]) # Output would be e 
+\end{minted}
+
+\subsubsection{Looping Through a String}
+Since strings are arrays, we can loop through the characters in a string, with a \mintinline{python}{for} loop. \\
+
+Example:
+\begin{minted}{python}
+# Loop through the letters in the word "banana"
+for x in "banana":
+    print(x)
+\end{minted}
+
+\subsubsection{String Length}
+To get the length of a string, use the \mintinline{python}{len()} function. \\
+
+Example: 
+\begin{minted}{python}
+a = "Hello, world!"
+print(len(a)) # The len() function returns the length of a string - in this case, 13
+\end{minted}
+
+\subsubsection{Check String}
+\begin{itemize}
+    \item To check if a certain phrase or character is present in a string, we can use the keyword \mintinline{python}{in}. 
+    \item To check if a certain phrase or character is NOT present in a string, we can use the keyword \mintinline{python}{not in}. 
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+txt = "The best things in life are free!" 
+if "free" in txt:
+    print("Yes 'free' is present.")
+if "expensive" not in txt:
+    print("No, 'expensive' is NOT present.")
+\end{minted}
+
+\subsubsection{Slicing Strings}
+\begin{itemize}
+    \item You can return a rage of characters by using the slice syntax.
+    \item Specify the start index and the end index, separated by a colon, to return a part of the string.
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+# Get the characters from position 2 to position 5 (not included)
+b = "Hello, World!"
+print(b[2:5]) # Output is llo 
+\end{minted}
+
+\hl{\textbf{REMEMBER:} The first character has index 0.} \\
+
+Slice From Start: \\
+By leaving out the start index, the range will start at the first character. \\
+
+
+Example:
+\begin{minted}{python}
+# Get the characters from the start to position 5 (not included)
+b = "Hello, World!
+print(b[:5]) # Output is Hello
+\end{minted}
+
+Slice To the End: \\
+By leaving out the end index, the range will go to the end. \\
+
+
+Example:
+\begin{minted}{python}
+# Get the characters from position 2 all the way to the end
+b = "Hello, World!"
+print(b[2:]) # Output is llo, World!
+\end{minted}
+
+Negative Indexing: \\
+Use negative indexes to start the slice from the end of the string. \\
+
+
+Example:
+\begin{minted}{python}
+b = "Hello, World!"
+print(b[-5:-2]) # Output is orl (remember does not include -2)
+\end{minted}
+
+\subsubsection{String Methods}
+Python has a set of built-in methods that you can use on strings:
+\begin{itemize}
+    \item The \mintinline{python}{upper} method returns the string in upper case. 
+    \item The \mintinline{python}{lower} method returns the string in lower case. 
+    \item Whitespace is the space before and/or after the actual text, and very often you want to remove this space.
+    \item The \mintinline{python}{strip} method removes any whitespace from the beginning or the end. 
+    \item The \mintinline{python}{replace} method replaces a string with another string.
+    \item The \mintinline{python}{split} method splits the strings into substrings if it finds instances of the separator.
+\end{itemize}
+
+Examples:
+\begin{minted}{python}
+a = "Hello, World!"
+print(a.upper()) # Output is HELLO, WORLD!
+print(a.lower()) # Output is hello, world!
+print(a.replace("H", "J")) # Output is Jello, World!
+print(a.split(",")) # Output is ['Hello', 'World!']
+
+b = " Hello, World! " 
+print(a.strip()) #Output is "Hello, World!" 
+\end{minted}
+
+\subsubsection{String Concatenation}
+\begin{itemize}
+    \item To concatenate, or combine, two strings you can use the + operator.
+    \item To add a space between them, add a \mintinline{python}{" "}
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+a = "Hello"
+b = "World"
+c = a + b 
+d = a + " " + b 
+print(c) # Output is HelloWorld
+print(d) # Output is Hello World 
+\end{minted}
+
+\subsubsection{String Format}
+As we learnt in the Python Variables chapter, we \textbf{cannot} combine strings and numbers like this: \\
+
+Example:
+\begin{minted}[bgcolor=hlred]{python}
+age = 36
+txt = "My name is John, I am " + age
+print(txt)
+\end{minted}
+
+But we can combine strings and numbers by using \textit{f-strings} or the \mintinline{python}{format()} method. \\
+
+F-Strings
+\begin{itemize}
+    \item F-strings were introduced in Python 3.6, and is now the preferred way of formatting strings.
+    \item To specify a string as an f-string, simply put a \mintinline{python}{f} in front of the string literal, and add curly brackets \mintinline{python}{{}} as placeholders for variables and other operations. 
+\end{itemize}
+
+Example:
+\begin{minted}{python}
+age = 36
+txt = f"My name is John, I am {age}"
+print(txt)
+\end{minted}
+
+\section{Classes}
+\section{File Handling}
+\section{Python Modules}
+\section{Python Matplotlib}
+\section{Machine Learning}
+\section{Python DSA}
+\section{Python MySQL}
+\section{Python MongoDB}
+\section{Python Reference}
+\section{Module Reference}
+\section{Python How To}
+\section{Python Examples}
+\end{document}
+
+
