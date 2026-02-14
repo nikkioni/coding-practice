@@ -1,6 +1,6 @@
 # Add two to user input 
 def addTwo():
-    num = int(input("Enter a number"))
+    num = int(input("Enter a number "))
     result1 = num + 2 
     # print(result) 
     return result1
@@ -14,8 +14,7 @@ def multiplyByFive(num):
 continue_game = "YES"
 while continue_game == "YES":
     num = addTwo()
-    print(multiplyByFive(num))
-    continue_game = input("do you want to play again?").upper() 
+    print(f"{num-2} plus 2 is {num} which multiplied by 5 is {multiplyByFive(num)}")
+    continue_game = input("do you want to play again? ").upper() 
 
 print("Thanks for playing!")
-

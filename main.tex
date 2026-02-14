@@ -1,0 +1,50 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\usepackage{xcolor} % Allows defining custom colours
+\usepackage{minted} % Required for syntax highlighting (uses Pygments)
+
+% Set default options for all minted options 
+\setminted{
+    linenos,             % Show line numbers
+    numbersep=6pt,       % Space between numbers and code
+    frame=single,        % Put a box/frame around the code
+    framesep=-2mm,        % Space between frame and code
+    fontsize=\footnotesize, % Font size of the code
+    breaklines=true,     % Automatically wrap long lines
+    tabsize=4,           % How many spaces a tab represents
+    style=vs,       % Colour scheme (Visual Studio style here; can change)
+}
+
+
+\title{My First Offline LaTeX Document}
+\author{Nicole Oni}
+\date{February 2026}
+
+\begin{document}
+
+\maketitle
+
+Hello! This is my first LaTeX document offline.
+
+\begin{enumerate}
+    \item Find 
+    
+    \[ 
+    \int \left(2x^3 + 7x^2 + 8x + 3 \right) \, dx
+    \]
+
+    \item What does this code do?
+    \begin{minted}{python}
+    def AddTwo(num):
+        result = num + 2
+        return result
+    number = int(input("Enter a number"))
+    AddTwo(number)
+    \end{minted}
+\end{enumerate}
+
+\end{document}
+
+

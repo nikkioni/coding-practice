@@ -60,7 +60,7 @@ Example:
 ---
 
 ## What I Learnt
-- What challened you
+- What challegned you
 - What broke
 - What you refactored
 - What you understand better now 
